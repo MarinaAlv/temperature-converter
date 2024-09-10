@@ -6,8 +6,7 @@
  * @returns {number} temperature in °C
  */
 function convertToCelsius(f) {
- param: {32}f;
- return: {0}c;
+ return (f - 32) * (5 / 9);
 }
 console.log(convertToCelsius)
 /**
@@ -25,23 +24,21 @@ console.log(convertToCelsius)
  */
 function describeTemperature(f) {
 let description;
-if (f<32){
-  description="very cold";
-} else if (f<64){
-  description="cold";
-} else if (f<86){
- description="warm"; 
-} else if(f<100){
-  description="hot"
+if (f < 32) {
+  description = "very cold";
+} else if (f < 64) {
+  description = "cold";
+} else if (f < 86) {
+ description = "warm"; 
+} else if(f < 100) {
+  description = "hot";
 } else {
-  description="very hot"
+  description = "very hot";
 }
 return{
-  celsius: celsius.toFixed(2),
   description: description
 }
 
-console.log(describeTemperature);
 }
 
 /**
@@ -49,7 +46,10 @@ console.log(describeTemperature);
  * @returns {number} a random integer in the range [0, `limit`)
  */
 function getRandomInt(limit) {
-  // TODO
+  const percentage = Math.random();
+  const randomFloat = percentage * limit;
+  const randomInt = Math.floor(randomFloat);
+  return randomInt;
 }
 
 // -------------------- DO NOT CHANGE THE CODE BELOW ---------------------- //
